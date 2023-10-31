@@ -29,8 +29,8 @@ Evaluation Criteria:
 We used a scoring system that takes into account several significant variables to grade the game. First, the cells have risk scores, which are determined by computing the cell's wumpus, pit, and treasure probabilities. We assign scores to adjacent cells if we detect a breeze or smell. Then, if the cell has previously been visited, we add visit risk to it. This is also updated if the agent visits the cell again . To avoid loops, we also used the A* algorithm to select the best move from unvisited adjacent cells.
 
 The predicates are: 
-1.Adjacent(x1, y1, x2, y2): A relation indicating that cells (x1, y1) and (x2, y2) are adjacent.
-2.Breeze(x, y): A predicate indicating that there is breeze in cell (x, y).
+1. Adjacent(x1, y1, x2, y2): A relation indicating that cells (x1, y1) and (x2, y2) are adjacent.
+2. Breeze(x, y): A predicate indicating that there is breeze in cell (x, y).
 3. Pit(x, y): A predicate indicating that there is a pit in cell (x, y)
 4. Treasure(x, y): A predicate indicating that there is a treasure in cell (x, y).
 5. Smell(x, y): A predicate indicating that there is smell in cell (x, y)
