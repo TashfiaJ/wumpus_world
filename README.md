@@ -20,7 +20,8 @@ Implementation Components
 boardGeneration: This particular component generates the game board, which can be done either through user input or randomly. It also adds game elements like scents around Wumpuses, and the breezes around pits.
 gameEngine: This component manages the player's movement to the best-selected destination, collecting gold, shooting arrows, and updating hints (like stench and breeze) when a Wumpus is defeated or gold is collected.
 
-gameLogics: It manages the AI's decision-making process. It determines the AI's best course of action, employing various strategies for moving, shooting arrows, and collecting treasures.
+#GameLogics: 
+It manages the AI's decision-making process. It determines the AI's best course of action, employing various strategies for moving, shooting arrows, and collecting treasures.
 pathFinder: This component calculates the optimal path for the AI from its current location to the selected destination using the A* algorithm, which involves heuristic distance estimation and finding the shortest path.
 global: This component serves as a central repository for essential variables and functionalities used across multiple components
 
