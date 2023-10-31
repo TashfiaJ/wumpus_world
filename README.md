@@ -20,26 +20,26 @@ Implementation Components
 boardGeneration: This particular component generates the game board, which can be done either through user input or randomly. It also adds game elements like scents around Wumpuses, and the breezes around pits.
 gameEngine: This component manages the player's movement to the best-selected destination, collecting gold, shooting arrows, and updating hints (like stench and breeze) when a Wumpus is defeated or gold is collected.
 
-#GameLogics: 
+GameLogics: 
 It manages the AI's decision-making process. It determines the AI's best course of action, employing various strategies for moving, shooting arrows, and collecting treasures.
 pathFinder: This component calculates the optimal path for the AI from its current location to the selected destination using the A* algorithm, which involves heuristic distance estimation and finding the shortest path.
 global: This component serves as a central repository for essential variables and functionalities used across multiple components
 
-Evaluation Criteria
+Evaluation Criteria: 
 We used a scoring system that takes into account several significant variables to grade the game. First, the cells have risk scores, which are determined by computing the cell's wumpus, pit, and treasure probabilities. We assign scores to adjacent cells if we detect a breeze or smell. Then, if the cell has previously been visited, we add visit risk to it. This is also updated if the agent visits the cell again . To avoid loops, we also used the A* algorithm to select the best move from unvisited adjacent cells.
 
 The predicates are: 
-Adjacent(x1, y1, x2, y2): A relation indicating that cells (x1, y1) and (x2, y2) are adjacent.
-Breeze(x, y): A predicate indicating that there is breeze in cell (x, y).
-Pit(x, y): A predicate indicating that there is a pit in cell (x, y)
-Treasure(x, y): A predicate indicating that there is a treasure in cell (x, y).
-Smell(x, y): A predicate indicating that there is smell in cell (x, y)
-Wumpus(x, y): A predicate indicating that there is a wumpus in cell (x, y)
+1.Adjacent(x1, y1, x2, y2): A relation indicating that cells (x1, y1) and (x2, y2) are adjacent.
+2.Breeze(x, y): A predicate indicating that there is breeze in cell (x, y).
+3. Pit(x, y): A predicate indicating that there is a pit in cell (x, y)
+4. Treasure(x, y): A predicate indicating that there is a treasure in cell (x, y).
+5. Smell(x, y): A predicate indicating that there is smell in cell (x, y)
+6. Wumpus(x, y): A predicate indicating that there is a wumpus in cell (x, y)
 
 The first order logics are given below:
-∀x∀y (Breeze(x, y) ⇒ ∃x1∃y1 (Adjacent(x, y, x1, y1) ∧ Pit(x1, y1)))
-∀x∀y (Smell(x, y) ⇒ ∃x1∃y1 (Adjacent(x, y, x1, y1) ∧ Wumpus(x1, y1)))
-∀x∀y (¬Breeze(x, y) ⇒ ¬∃x1∃y1 (Adjacent(x, y, x1, y1) ∧ Pit(x1, y1)))
-∀x∀y (¬Smell(x, y) ⇒ ¬∃x1∃y1 (Adjacent(x, y, x1, y1) ∧ Wumpus(x1, y1))
+1. ∀x∀y (Breeze(x, y) ⇒ ∃x1∃y1 (Adjacent(x, y, x1, y1) ∧ Pit(x1, y1)))
+2. ∀x∀y (Smell(x, y) ⇒ ∃x1∃y1 (Adjacent(x, y, x1, y1) ∧ Wumpus(x1, y1)))
+3. ∀x∀y (¬Breeze(x, y) ⇒ ¬∃x1∃y1 (Adjacent(x, y, x1, y1) ∧ Pit(x1, y1)))
+4. ∀x∀y (¬Smell(x, y) ⇒ ¬∃x1∃y1 (Adjacent(x, y, x1, y1) ∧ Wumpus(x1, y1))
 
 The Wumpus World game offers an engaging adventure where the agent aims to maximize its score by collecting treasures while avoiding hazards. The game's implementation includes various services and logic for efficient decision-making, contributing to a challenging and enjoyable gaming experience.
